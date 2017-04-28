@@ -36,10 +36,11 @@ or
 ```
 
 ##### But there is a pitfall: 
-Converting uses a certain **Charset**. If not set, it uses ```UTF-8``` as the default charset, common other charsets are for example ```UTF-16```, ```ISO-8859-1``` or ```windows-1252```. For the chars that doesn't make a difference. 
+Converting uses a certain **Charset**. If not set, it uses ```UTF-8``` as the default charset, common other charsets are for example ```UTF-16```, ```ISO-8859-1``` or ```windows-1252```. 
 
-But if there are signs like ```§``` or the german ```ß``` the resulting bytearrays for ```UTF-8``` and ```ISO-8859-1``` differ and, going further, also the generated Hash! 
-If for example a password was hashed with ```cp1291``` and saved to database, but the current app uses ```UTF-8``` the hashes may differ, so the user cannot log in with the correct password!
+For example for the first 128 symbols that contain most latin letters it doesn't matter if the charset is ```UTF-8``` or ```windows-1252```.
+But if there are signs like ```§``` or the german ```ß``` the resulting bytearrays differ and, going further, also the generated Hash! 
+If for example a password was hashed with ```windows-1252``` at creating a user and this hash was saved to database, but the current app uses ```UTF-8``` the hashes may differ, so the user cannot log in with the correct password!
 
 There are some useful methods regarding Charsets, for example:
 - To check the current charset:
@@ -160,14 +161,14 @@ For further information have a look an the [shiro website][3].
 ### 3. Some words to displaying a hash
 
 A hash itself is just a bunch of bits and bytes without any relation to characters. 
-So displaying the hash by converting it to a string and display or print that string to console shows real strange things:
+The hash can be converted to a string like this:
 ```java
 	String hashAsString = new String(myHashedPassword);
 	System.out.println(hashAsString);
 ```
-IMAGE
+But writing that string to console or to the UI displays it in a really strange and unreadable form.
 		
-The most used way to display a Hash is to get it's hexadecimal representation. It is just a way the bytes of a hash are "encrypted" to get a more readable format.
+The most used way to display a Hash is to get it's hexadecimal representation. That's just a way the bytes of a hash are "encrypted" to get a more readable format.
 There are some ways to get that format, one easy way ist to use the ```Hex``` class of the "shiro" framework:
 ```java
 	String hashAsHex = Hex.encodeToString(myHashedPassword);
@@ -178,9 +179,7 @@ or the ```Hex``` class of the ["apache commons" framework][4]
 ```
 The shiro framework is available in RapidClipse projects. But the Apache commons framework must be added project (add a maven dependency to the pom.xml file of the project)
 
-### Table of contents
 
-[TOC]
 
 
   [1]: https://rapidclipse.atlassian.net/wiki/pages/viewpage.action?pageId=37290032
