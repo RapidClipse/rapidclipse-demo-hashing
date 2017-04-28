@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<?xdevuiml version="1.0"?>
+<?template BROWSER_XGA?>
+<?import com.xdev.ui.XdevButton?>
+<?import com.xdev.ui.XdevGridLayout?>
+<?import com.xdev.ui.XdevHorizontalSplitPanel?>
+<?import com.xdev.ui.XdevLabel?>
+<?import com.xdev.ui.XdevPanel?>
+<?import com.xdev.ui.XdevTextArea?>
+<?import com.xdev.ui.XdevVerticalLayout?>
+<?import com.xdev.ui.XdevView?>
+<XdevView xmlns:x="http://xml.xdev-software.com/xdevuiml" x:name="CommonView">
+    <x:constraints zpos="0" width="100%" height="100%" />
+    <XdevHorizontalSplitPanel styleName="large" x:splitPosition="80.0" x:name="horizontalSplitPanel">
+        <x:constraints zpos="0" width="100%" height="100%" />
+        <XdevVerticalLayout x:name="verticalLayout">
+            <x:constraints splitPos="FIRST" width="100%" height="100%" />
+            <XdevPanel x:name="panel2">
+                <x:constraints weighty="0.0" width="100%" alignment="TOP_LEFT" />
+                <XdevVerticalLayout x:name="verticalLayout5">
+                    <x:constraints zpos="0" width="100%" height="-1px" />
+                    <XdevButton caption="Back" x:name="button">
+                        <x:constraints weighty="0.0" alignment="TOP_LEFT" />
+                        <x:event>click.buttonClick</x:event>
+                    </XdevButton>
+                </XdevVerticalLayout>
+            </XdevPanel>
+            <XdevPanel x:name="panel3">
+                <x:constraints weighty="0.0" width="100%" />
+                <XdevVerticalLayout x:name="verticalLayout4">
+                    <x:constraints zpos="0" width="100%" height="-1px" />
+                    <XdevGridLayout x:name="gridLayout" margin="">
+                        <x:constraints weighty="0.0" width="100%" alignment="TOP_CENTER" />
+                        <XdevLabel x:name="labelCSDesc" value="Default Charset">
+                            <x:constraints gridx="1" gridy="2" weighty="0.0" weightx="0.1" width="100%" alignment="TOP_RIGHT" />
+                        </XdevLabel>
+                        <XdevLabel x:name="labelCDValue" value="Label">
+                            <x:constraints gridx="2" gridy="2" weighty="0.0" weightx="0.1" width="100%" />
+                        </XdevLabel>
+                        <XdevLabel x:name="labelPW" value="password">
+                            <x:constraints gridx="1" gridy="3" weighty="0.0" weightx="0.1" width="100%" />
+                        </XdevLabel>
+                        <XdevLabel x:name="label2">
+                            <x:constraints gridx="2" gridy="3" weighty="0.0" weightx="0.1" width="100%" />
+                            <value x:content="code">this.mypassword</value>
+                        </XdevLabel>
+                    </XdevGridLayout>
+                </XdevVerticalLayout>
+            </XdevPanel>
+            <XdevPanel x:name="panel">
+                <x:constraints weighty="0.0" width="100%" />
+                <XdevVerticalLayout x:name="verticalLayout3">
+                    <x:constraints zpos="0" width="100%" height="-1px" />
+                    <XdevLabel x:name="labelProvider" value="List all available provider for the Java Security API and it's services.">
+                        <x:constraints weighty="0.0" width="100%" alignment="TOP_LEFT" />
+                    </XdevLabel>
+                    <XdevButton caption="Show provider and services" x:name="buttonProvider">
+                        <x:constraints weighty="0.0" alignment="TOP_LEFT" />
+                        <x:event>click.buttonClick</x:event>
+                    </XdevButton>
+                </XdevVerticalLayout>
+            </XdevPanel>
+            <XdevPanel x:name="panel5">
+                <x:constraints weighty="0.0" width="100%" />
+                <XdevVerticalLayout x:name="verticalLayout7">
+                    <x:constraints width="100%" zpos="0" height="-1px" />
+                    <XdevLabel x:name="label4" value="Using default charset (utf-8) with different hashing algorithms">
+                        <x:constraints gridHeight="1" gridx="1" gridy="8" weighty="0.0" weightx="0.0" width="100%" alignment="TOP_LEFT" gridWidth="1" />
+                    </XdevLabel>
+                    <XdevButton caption="Rapidclipse Hashstrategy &amp; md5" x:name="rcAndMD5">
+                        <x:constraints gridHeight="1" gridx="1" gridy="9" weighty="0.0" weightx="0.0" alignment="TOP_LEFT" gridWidth="1" />
+                        <x:event>click.buttonClick</x:event>
+                    </XdevButton>
+                    <XdevButton caption="Rapidclipse Hashstrategy &amp; PBKDF2WithHmacSHA1" x:name="rcAndPBKDF2">
+                        <x:constraints gridHeight="1" gridx="1" gridy="10" weighty="0.0" weightx="0.0" alignment="TOP_LEFT" gridWidth="1" />
+                        <x:event>click.buttonClick</x:event>
+                    </XdevButton>
+                </XdevVerticalLayout>
+            </XdevPanel>
+            <XdevPanel x:name="panel4">
+                <x:constraints weighty="0.0" width="100%" />
+                <XdevVerticalLayout x:name="verticalLayout6">
+                    <x:constraints width="100%" zpos="0" height="-1px" />
+                    <XdevLabel x:name="label" value="RapidClipse Hashstrategy, SHA256 with different charsets">
+                        <x:constraints gridHeight="1" gridx="1" gridy="11" weighty="0.0" weightx="0.0" alignment="TOP_LEFT" gridWidth="1" />
+                    </XdevLabel>
+                    <XdevButton caption="Default: Rapidclipse Hashstrategy &amp;UTF-8" x:name="rcAndUTF8">
+                        <x:constraints weighty="0.0" alignment="TOP_LEFT" />
+                        <x:event>click.buttonClick</x:event>
+                    </XdevButton>
+                    <XdevButton caption="Rapidclipse Hashstrategy &amp; ISO-8859-1" x:name="rcAndISO">
+                        <x:constraints gridHeight="1" gridx="1" gridy="13" top="291px" left="-1px" weighty="0.0" weightx="0.0" alignment="TOP_LEFT" gridWidth="1" />
+                        <x:event>click.buttonClick</x:event>
+                    </XdevButton>
+                    <XdevButton caption="Rapidclipse Hashstrategy &amp; UTF-16" x:name="rcAndUTF16">
+                        <x:constraints gridHeight="1" gridx="1" gridy="12" top="291px" left="-1px" weighty="0.0" weightx="0.0" alignment="TOP_LEFT" gridWidth="1" />
+                        <x:event>click.buttonClick</x:event>
+                    </XdevButton>
+                </XdevVerticalLayout>
+            </XdevPanel>
+        </XdevVerticalLayout>
+        <XdevVerticalLayout x:name="verticalLayout2">
+            <x:constraints splitPos="SECOND" width="100%" height="100%" />
+            <XdevTextArea columns="5" x:name="textArea" readOnly="true" rows="2">
+                <x:constraints weighty="0.1" width="100%" height="100%" />
+            </XdevTextArea>
+        </XdevVerticalLayout>
+    </XdevHorizontalSplitPanel>
+</XdevView>
+

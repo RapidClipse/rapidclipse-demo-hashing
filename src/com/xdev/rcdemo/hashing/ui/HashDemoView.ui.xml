@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<?xdevuiml version="1.0"?>
+<?template BROWSER_XGA?>
+<?import ??>
+<?import com.xdev.ui.XdevAccordion?>
+<?import com.xdev.ui.XdevButton?>
+<?import com.xdev.ui.XdevCheckBox?>
+<?import com.xdev.ui.XdevGridLayout?>
+<?import com.xdev.ui.XdevHorizontalLayout?>
+<?import com.xdev.ui.XdevHorizontalSplitPanel?>
+<?import com.xdev.ui.XdevLabel?>
+<?import com.xdev.ui.XdevPanel?>
+<?import com.xdev.ui.XdevTextArea?>
+<?import com.xdev.ui.XdevVerticalLayout?>
+<?import com.xdev.ui.XdevView?>
+<?import com.xdev.ui.entitycomponent.listselect.XdevOptionGroup?>
+<XdevView xmlns:x="http://xml.xdev-software.com/xdevuiml" x:name="CommonView">
+    <x:constraints zpos="0" width="100%" height="100%" />
+    <XdevHorizontalSplitPanel styleName="large" x:splitPosition="80.0" x:name="horizontalSplitPanel">
+        <x:constraints zpos="0" width="100%" height="100%" />
+        <XdevVerticalLayout x:name="verticalLayout">
+            <x:constraints splitPos="FIRST" width="100%" height="100%" />
+            <XdevPanel x:name="panel">
+                <x:constraints weighty="0.0" width="100%" alignment="TOP_LEFT" />
+                <XdevVerticalLayout x:name="verticalLayout3">
+                    <x:constraints zpos="0" width="100%" height="-1px" />
+                    <XdevButton caption="Back" x:name="backButton">
+                        <x:constraints weighty="0.0" alignment="TOP_LEFT" />
+                        <x:event>click.buttonClick</x:event>
+                    </XdevButton>
+                </XdevVerticalLayout>
+            </XdevPanel>
+            <XdevPanel x:name="panelInfos">
+                <x:constraints weighty="0.0" width="100%" height="100px" />
+                <XdevHorizontalLayout x:name="horizontalLayout2">
+                    <x:constraints zpos="0" width="100%" height="100%" />
+                    <XdevGridLayout x:name="gridLayout" margin="">
+                        <x:constraints weighty="0.0" weightx="0.1" width="100%" />
+                        <XdevLabel x:name="labelCSDesc" value="Default Charset">
+                            <x:constraints gridx="1" gridy="1" weighty="0.0" weightx="0.1" alignment="TOP_RIGHT" />
+                        </XdevLabel>
+                        <XdevLabel x:name="labelCDValue" value="UTF-8">
+                            <x:constraints gridx="2" gridy="1" weighty="0.0" weightx="0.1" />
+                        </XdevLabel>
+                        <XdevLabel x:name="label" value="password used in the examples">
+                            <x:constraints gridx="1" gridy="2" weighty="0.0" weightx="0.1" alignment="MIDDLE_RIGHT" />
+                        </XdevLabel>
+                        <XdevLabel x:name="labelDefaultPassword">
+                            <x:constraints gridx="2" gridy="2" weighty="0.0" weightx="0.1" alignment="MIDDLE_LEFT" />
+                            <value x:content="code">mypassword</value>
+                        </XdevLabel>
+                    </XdevGridLayout>
+                </XdevHorizontalLayout>
+            </XdevPanel>
+            <XdevAccordion x:name="accordion" x:selectedTabIndex="2">
+                <x:constraints weighty="1.0" width="100%" height="100%" />
+                <XdevVerticalLayout caption="RapidClipse Hashstrategy (I)" x:name="verticalLayoutRCI">
+                    <x:constraints width="100%" />
+                    <XdevLabel x:name="labelRCIStrategyDesc" value="Charset: default charset">
+                        <x:constraints weighty="0.0" width="100%" alignment="TOP_LEFT" />
+                    </XdevLabel>
+                    <XdevLabel x:name="labelRCIAlgo" value="Algorithm: SHA256">
+                        <x:constraints weighty="0.0" width="100%" alignment="TOP_LEFT" />
+                    </XdevLabel>
+                    <XdevOptionGroup x:name="optionRCICondense" styleName="horizontal">
+                        <x:constraints weighty="0.0" width="100%" alignment="TOP_LEFT" />
+                        <x:typeArguments>
+                            <typeArgument type="?" />
+                        </x:typeArguments>
+                        <x:event>valueChange.valueChange</x:event>
+                    </XdevOptionGroup>
+                    <XdevHorizontalLayout x:name="horizontalLayout" margin="">
+                        <x:constraints weighty="0.0" width="100%" alignment="TOP_LEFT" />
+                        <XdevButton caption="show" x:name="buttonRCIHash">
+                            <x:constraints weighty="0.0" weightx="0.0" alignment="TOP_LEFT" />
+                            <x:event>click.buttonClick</x:event>
+                        </XdevButton>
+                    </XdevHorizontalLayout>
+                    <XdevLabel x:name="labelRCIDesc" value="Hash with the HashStrategy from the AuthenticationProvider.">
+                        <x:constraints weighty="0.1" width="100%" height="100%" />
+                    </XdevLabel>
+                </XdevVerticalLayout>
+                <XdevVerticalLayout caption="RapidClipse Hashstrategy (II)" x:name="verticalLayoutRCII">
+                    <x:constraints width="100%" height="100%" />
+                    <XdevLabel x:name="labelRCIIStrategyDesc" value="Charset: default charset">
+                        <x:constraints top="69px" left="-1px" weighty="0.0" width="100%" alignment="TOP_LEFT" />
+                    </XdevLabel>
+                    <XdevLabel x:name="labelRCIIAlgo" value="Algorithm: SHA256">
+                        <x:constraints top="69px" left="-1px" weighty="0.0" width="100%" alignment="TOP_LEFT" />
+                    </XdevLabel>
+                    <XdevOptionGroup x:name="optionRCIICondense" styleName="horizontal">
+                        <x:constraints weighty="0.0" alignment="TOP_LEFT" />
+                        <x:typeArguments>
+                            <typeArgument type="?" />
+                        </x:typeArguments>
+                    </XdevOptionGroup>
+                    <XdevButton caption="show" x:name="buttonRCII">
+                        <x:constraints weighty="0.0" alignment="TOP_LEFT" />
+                        <x:event>click.buttonClick</x:event>
+                    </XdevButton>
+                    <XdevLabel x:name="labelRCIIdesc" value="Hash with a new HashStrategy">
+                        <x:constraints weighty="0.1" width="100%" alignment="TOP_LEFT" height="100%" />
+                    </XdevLabel>
+                </XdevVerticalLayout>
+                <XdevVerticalLayout caption="MessageDigest" x:name="verticalLayoutMD">
+                    <x:constraints width="100%" height="100%" />
+                    <XdevLabel x:name="labelMDStrategyDesc" value="Charset: default charset">
+                        <x:constraints top="69px" left="-1px" weighty="0.0" width="100%" alignment="TOP_LEFT" />
+                    </XdevLabel>
+                    <XdevLabel x:name="labelMDAlgo" value="Algorithm: SHA256">
+                        <x:constraints top="69px" left="-1px" weighty="0.0" width="100%" alignment="TOP_LEFT" />
+                    </XdevLabel>
+                    <XdevOptionGroup x:name="optionMDCondense" styleName="horizontal">
+                        <x:constraints weighty="0.0" alignment="TOP_LEFT" />
+                        <x:typeArguments>
+                            <typeArgument type="?" />
+                        </x:typeArguments>
+                    </XdevOptionGroup>
+                    <XdevButton caption="show" x:name="buttonMD">
+                        <x:constraints weighty="0.0" alignment="TOP_LEFT" />
+                        <x:event>click.buttonClick</x:event>
+                    </XdevButton>
+                    <XdevLabel x:name="labelMDdesc" value="Hash a password with a new MessageDigest object">
+                        <x:constraints weighty="0.1" width="100%" alignment="TOP_LEFT" height="100%" />
+                    </XdevLabel>
+                </XdevVerticalLayout>
+                <XdevVerticalLayout caption=" Shiro framework" x:name="verticalLayoutSH">
+                    <x:constraints width="100%" height="100%" />
+                    <XdevLabel x:name="labelShiroStrategyDesc" value="Charset: default charset">
+                        <x:constraints top="69px" left="-1px" weighty="0.0" width="100%" alignment="TOP_LEFT" />
+                    </XdevLabel>
+                    <XdevLabel x:name="labelShiroAlgo" value="Algorithm: SHA256">
+                        <x:constraints top="69px" left="-1px" weighty="0.0" width="100%" alignment="TOP_LEFT" />
+                    </XdevLabel>
+                    <XdevCheckBox caption="with salt" x:name="checkBox">
+                        <x:constraints weighty="0.0" alignment="TOP_LEFT" />
+                    </XdevCheckBox>
+                    <XdevButton caption="show" x:name="buttonShiro">
+                        <x:constraints weighty="0.0" alignment="TOP_LEFT" />
+                        <x:event>click.buttonClick</x:event>
+                    </XdevButton>
+                    <XdevLabel x:name="labelShiroDesc" value="With SHA256 class">
+                        <x:constraints weighty="0.1" width="100%" alignment="TOP_LEFT" height="100%" />
+                    </XdevLabel>
+                </XdevVerticalLayout>
+            </XdevAccordion>
+        </XdevVerticalLayout>
+        <XdevVerticalLayout x:name="verticalLayout2">
+            <x:constraints splitPos="SECOND" width="100%" height="100%" />
+            <XdevTextArea columns="5" x:name="textArea" readOnly="true" rows="2">
+                <x:constraints weighty="0.1" width="100%" height="100%" />
+            </XdevTextArea>
+        </XdevVerticalLayout>
+    </XdevHorizontalSplitPanel>
+</XdevView>
+
