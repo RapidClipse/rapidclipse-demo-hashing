@@ -27,16 +27,17 @@ Most of them needs a **byte[]** as parameter, so there are two steps to perform 
 First the password string must be converted into a bytearray.
 This is quite simple, the String class has a ```getBytes()``` method:
 ```java
-	byte[] passwordAsByteArray = "myPlaintextPassword".getBytes();
+	byte[] passwordAsByteArray = "myPlaintextPassword".getBytes(StandardCharsets.UTF_8);
 ```
 or 
 ```java
 	String mypassword = "myPlaintextPassword";
-	byte[] passwordAsByteArray = mypassword.getBytes();
+	byte[] passwordAsByteArray = mypassword.getBytes(StandardCharsets.UTF_8);
 ```
 
 ##### But there is a pitfall: 
-Converting uses a certain **Charset**. If not set, it uses ```UTF-8``` as the default charset, common other charsets are for example ```UTF-16```, ```ISO-8859-1``` or ```windows-1252```. 
+The ```getBytes()``` method can be used without the **Charset** parameter. But this converting uses a certain **Charset** internally. If not set, the system default is used. 
+RapidClipse preview uses ```UTF-8``` as the default charset. But if a app is deployed and runs on another system, the system default can differ, common other charsets are for example ```US-ASCII```, ```UTF-16```, ```ISO-8859-1``` or ```windows-1252```. 
 
 For example for the first 128 symbols that contain most latin letters it doesn't matter if the charset is ```UTF-8``` or ```windows-1252```.
 But if there are signs like ```§``` or the german ```ß``` the resulting bytearrays differ and, going further, also the generated Hash! 
