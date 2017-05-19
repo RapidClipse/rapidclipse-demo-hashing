@@ -35,6 +35,7 @@ or
 	byte[] passwordAsByteArray = mypassword.getBytes(StandardCharsets.UTF_8);
 ```
 
+
 ##### But there is a pitfall: 
 The ```getBytes()``` method can be used without the **Charset** parameter. But this converting uses a certain **Charset** internally. If not set, the system default is used. 
 RapidClipse preview uses ```UTF-8``` as the default charset. But if a app is deployed and runs on another system, the system default can differ, common other charsets are for example ```US-ASCII```, ```UTF-16```, ```ISO-8859-1``` or ```windows-1252```. 
@@ -42,6 +43,8 @@ RapidClipse preview uses ```UTF-8``` as the default charset. But if a app is dep
 For example for the first 128 symbols that contain most latin letters it doesn't matter if the charset is ```UTF-8``` or ```windows-1252```.
 But if there are signs like ```§``` or the german ```ß``` the resulting bytearrays differ and, going further, also the generated Hash! 
 If for example a password was hashed with ```windows-1252``` at creating a user and this hash was saved to database, but the current app uses ```UTF-8``` the hashes may differ, so the user cannot log in with the correct password!
+
+*In this demo mostly the short ```getBytes()``` variant is used, as it is not intended to be deployed.*
 
 There are some useful methods regarding Charsets, for example:
 - To check the current charset:
